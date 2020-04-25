@@ -1,0 +1,2 @@
+# movieQA_wechat-applet_back_end
+微信小程序电影问答系统后端flask框架
