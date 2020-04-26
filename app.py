@@ -21,12 +21,6 @@ def hello_world():
     return 'Hello World! every one'
 
 
-# @app.route("/getImage", methods=['GET'])
-# @allow_cross_domain
-# def get_image(url):
-#
-#     return jsonify(url)
-
 @app.route("/getToast",methods=['GET'])
 @allow_cross_domain
 def get_toast():

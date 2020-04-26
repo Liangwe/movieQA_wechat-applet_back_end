@@ -8,7 +8,9 @@ ua_headers = {
 class ProxyMiddleware():
     def __init__(self):
         # 调用代理API获取IP
-        self.get_url = "http://ip.memories1999.com/api.php?dh=940868768473483234&sl=3"
+        self.get_url = "http://route.xiongmaodaili.com/xiongmao-web/api" \
+                       "/glip?secret=e25eb0bd79c41bf7b32cfb00823c2b29&orderNo=" \
+                       "GL20200426084106iQsYCjua&count=3&isTxt=1&proxyType=1"
         # 我们构建的IP池,用于存储从代理API中获取的IP
         self.ip_list = []
         # 记录当前使用的 ip 是IP池中的哪一个
@@ -30,15 +32,23 @@ class ProxyMiddleware():
         """
         self.ip_list.clear()
         res = requests.get(self.get_url,headers=ua_headers)
-        with open(self.proxypath,'w',encoding='utf-8') as f:
-            f.write(res.text)
-        # 填充IP池(这里的处理方法对于不同的代理而言,使用的函数不一样,但是本质都是一样的, 取出IP,填充)
+        # with open(self.proxypath,'w',encoding='utf-8') as f:
+        #     f.write(res.text)
+        # # 填充IP池(这里的处理方法对于不同的代理而言,使用的函数不一样,但是本质都是一样的, 取出IP,填充)
+        # with open(self.proxypath, "r", encoding='utf-8') as f1:
+        #     lines = f1.readlines()  # 读取全部内容 ，并以列表方式返回
+        #     for line in lines:
+        #         if line != '\n':
+        #             self.ip_list.append(line.strip())
+
+        with open(self.proxypath, 'w', encoding='utf-8') as f:
+            for i in res.text.split():
+                f.write(i + '\n')
         with open(self.proxypath, "r", encoding='utf-8') as f1:
             lines = f1.readlines()  # 读取全部内容 ，并以列表方式返回
             for line in lines:
                 if line != '\n':
                     self.ip_list.append(line.strip())
-
     def getProxy(self):
         if self.ip_list != [] and self.ip_count < self.max_count:
             return self.ip_list[self.ip_count]

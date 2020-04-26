@@ -36,7 +36,7 @@ def get_Image_with_proxy(url,proxy):
     print(proxy)
     res = requests.get(url,proxies={'http':str(proxy)},headers = ua_headers)
     res.encoding = 'utf-8'
-    if len(res.content) > 500 and res.status_code == 200 :
+    if len(res.content) > 700 :
         with open('tmp.jpg', 'wb') as f:
             f.write(res.content)
         with open("tmp.jpg", "rb") as f:
@@ -50,7 +50,7 @@ def get_Image_with_proxy(url,proxy):
 def getImage(url):
     res = requests.get(url, headers = ua_headers, cookies=cookieDict)
     res.encoding = 'utf-8'
-    if len(res.content) > 500 and res.status_code == 200 :
+    if len(res.content) > 700 :
         with open('tmp.jpg','wb') as f:
             f.write(res.content)
 
