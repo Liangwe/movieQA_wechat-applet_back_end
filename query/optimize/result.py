@@ -54,39 +54,18 @@ class OptimizeResult:
         if movie_list:
             movie_tmp = []
             movie_data = {}
-            if len(movie_list[0])/2 > 30 :
-                result = ('共查询到{}条信息，如下所示(按照电影评分排名，仅显示前三十条)：\n'.format(int(len(movie_list[0]) / 2)))
-            else:
-                result = ('共查询到{}条信息，如下所示(按照电影评分排名)：\n'.format(int(len(movie_list[0]) / 2)))
+            result = '共查询到{}条信息，如下所示(按照电影评分排名)：\n'.format(int(len(movie_list[0]) / 2))
             for i in range(0, len(movie_list[0]), 2):
+                if movie_list[0][i + 1] == '':
+                    movie_list[0][i + 1] = '暂无评分信息'
                 tmp = {}
-                if len(movie_list[0])/2 < 30:
-                    tmp["movie_name"] =  movie_list[0][i]
-                    tmp["movie_score"] = movie_list[0][i + 1]
-                    movie_tmp.append(tmp)
-                else:
-                    if i < 60:
-                        tmp["movie_name"] = movie_list[0][i]
-                        tmp["movie_score"] = movie_list[0][i + 1]
-                        movie_tmp.append(tmp)
-                    else:
-                        break
+                tmp["movie_name"] = movie_list[0][i]
+                tmp["movie_score"] = movie_list[0][i + 1]
+                movie_tmp.append(tmp)
+
             movie_data['movie_list_info'] = result
             movie_data["movie_list"] = movie_tmp
             return movie_data
-
-            # result = '共查询到{}条信息，如下所示(按照电影评分排名)：\n'.format(int(len(movie_list[0]) / 2))
-            # for i in range(0, len(movie_list[0]), 2):
-            #     if movie_list[0][i + 1] == '':
-            #         movie_list[0][i + 1] = '暂无评分信息'
-            #     tmp = {}
-            #     tmp["movie_name"] = movie_list[0][i]
-            #     tmp["movie_score"] = movie_list[0][i + 1]
-            #     movie_tmp.append(tmp)
-            #
-            # movie_data['movie_list_info'] = result
-            # movie_data["movie_list"] = movie_tmp
-            # return movie_data
 
         if person_list:
             person_tmp = []
@@ -94,7 +73,7 @@ class OptimizeResult:
             result = '共查询到{}条信息，如下所示(按照演电影数量排名)：\n'.format(int(len(person_list[0]) / 2))
             for i in range(0, len(person_list[0]), 2):
                 if person_list[0][i + 1] == '':
-                    person_list[0][i + 1] = '暂无信息'
+                    person_list[0][i + 1] = '暂无评分信息'
                 tmp = {}
                 tmp["person_name"] = person_list[0][i]
                 tmp["person_movie_num"] = person_list[0][i + 1]
@@ -106,23 +85,20 @@ class OptimizeResult:
         if cooperate_list:
             cooperate_tmp = []
             cooperate_data = {}
-            if len(cooperate_list[0])/3 > 90 :
-                result = ('共查询到{}条信息，如下所示(按照合作次数排名，仅显示前三十条)：\n'.format(int(len(cooperate_list[0]) / 3)))
+            if len(cooperate_list[0])/2 > 30 :
+                result = ('共查询到{}条信息，如下所示(按照合作次数排名，仅显示前三十条)：\n'.format(int(len(cooperate_list[0]) / 2)))
             else:
-                result = ('共查询到{}条信息，如下所示(按照合作次数排名)：\n'.format(int(len(cooperate_list[0]) / 3)))
-            for i in range(0, len(cooperate_list[0]), 3):
+                result = ('共查询到{}条信息，如下所示(按照合作次数排名)：\n'.format(int(len(cooperate_list[0]) / 2)))
+            for i in range(0, len(cooperate_list[0]), 2):
                 tmp = {}
-                if len(cooperate_list[0])/3 < 30:
-
+                if len(cooperate_list[0])/2 < 30:
                     tmp["cooperate_name"] =  cooperate_list[0][i]
                     tmp["cooperate_times"] = cooperate_list[0][i + 1]
-                    tmp["ori_name"] = cooperate_list[0][i + 2]
                     cooperate_tmp.append(tmp)
                 else:
-                    if i < 90:
+                    if i < 60:
                         tmp["cooperate_name"] = cooperate_list[0][i]
                         tmp["cooperate_times"] = cooperate_list[0][i + 1]
-                        tmp["ori_name"] = cooperate_list[0][i + 2]
                         cooperate_tmp.append(tmp)
                     else:
                         break
@@ -175,39 +151,53 @@ class OptimizeResult:
         if person_info:
             person_data = {}
             result = '查询到以下信息：\n'
-            for i in range(len(person_info)):
-                if person_info[i] =='':
-                    person_info[i] = '暂无此信息'
+
             try:
                 name = ''.join(person_info[0])
+                if name == '':
+                    name = '暂无此信息'
             except:
                 name = '暂无此信息'
             try:
                 other_name = ''.join(person_info[1])
+                if other_name == '':
+                    other_name = '暂无此信息'
             except:
                 other_name = '暂无此信息'
             try:
                 gender = ''.join(person_info[2])
+                if gender == '':
+                    gender = '暂无此信息'
             except:
                 gender = '暂无此信息'
             try:
                 birthplace = ''.join(person_info[3])
+                if birthplace == '':
+                    birthplace = '暂无此信息'
             except:
                 birthplace ='暂无此信息'
             try:
                 birthday = ''.join(person_info[4])
+                if birthday == '':
+                    birthday = '暂无此信息'
             except:
                 birthday = '暂无此信息'
             try:
                 constellation = ''.join(person_info[5])
+                if constellation == '':
+                    constellation = '暂无此信息'
             except:
                 constellation = '暂无此信息'
             try:
                 profession = ''.join(person_info[6])
+                if profession == '':
+                    profession = '暂无此信息'
             except:
                 profession ='暂无此信息'
             try:
                 introduction = ''.join(person_info[7])
+                if introduction == '':
+                    introduction = '暂无此信息'
             except:
                 introduction = '暂无此信息'
             try:
@@ -253,38 +243,56 @@ class OptimizeResult:
                         data[i][j] = '暂无此信息'
             try:
                 name = ''.join(data[0][0])
+                if name == '':
+                    name = '暂无此信息'
             except:
                 name = '暂无此信息'
             try:
                 other_name = ''.join(data[0][1])
+                if other_name == '':
+                    other_name = '暂无此信息'
             except:
                 other_name = '暂无此信息'
             try:
                 country = ''.join(data[0][2])
+                if country == '':
+                    country = '暂无此信息'
             except:
                 country = '暂无此信息'
             try:
                 language = ''.join(data[0][3])
+                if language == '':
+                    language = '暂无此信息'
             except:
                 language = '暂无此信息'
             try:
                 date = ''.join(data[0][4])
+                if date  == '':
+                    date  = '暂无此信息'
             except:
                 date = '暂无此信息'
             try:
                 duration = ''.join(data[0][5])
+                if duration == '':
+                    duration = '暂无此信息'
             except:
                 duration = '暂无此信息'
             try:
                 score = ''.join(data[0][6])
+                if score == '':
+                    score = '暂无此信息'
             except:
                 score = '暂无此信息'
             try:
                 tag = ''.join(data[0][7])
+                if tag == '':
+                    tag = '暂无此信息'
             except:
                 tag = '暂无此信息'
             try:
                 introduction = ''.join(data[0][8])
+                if introduction == '':
+                    introduction = '暂无此信息'
             except:
                 introduction = '暂无此信息'
             try:

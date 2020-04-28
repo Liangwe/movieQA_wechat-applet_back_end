@@ -34,32 +34,38 @@ proxy = Proxy.getProxy()
 def get_Image_with_proxy(url,proxy):
     print('---启用代理----')
     print(proxy)
-    res = requests.get(url,proxies={'http':str(proxy)},headers = ua_headers)
-    res.encoding = 'utf-8'
-    if len(res.content) > 700 :
-        with open('tmp.jpg', 'wb') as f:
-            f.write(res.content)
-        with open("tmp.jpg", "rb") as f:
-            base64_data = base64.b64encode(f.read())
-        return base64_data.decode('utf-8')
-    else:
-        Proxy.changeProxy()
-        newproxy = Proxy.getProxy()
-        get_Image_with_proxy(url,newproxy)
+    try:
+        res = requests.get(url,proxies={'http':str(proxy)},headers = ua_headers)
+        res.encoding = 'utf-8'
+        if len(res.content) > 700 :
+            with open('tmp.jpg', 'wb') as f:
+                f.write(res.content)
+            with open("tmp.jpg", "rb") as f:
+                base64_data = base64.b64encode(f.read())
+            return base64_data.decode('utf-8')
+        else:
+            Proxy.changeProxy()
+            newproxy = Proxy.getProxy()
+            get_Image_with_proxy(url,newproxy)
+    except:
+        return None
 
 def getImage(url):
-    res = requests.get(url, headers = ua_headers, cookies=cookieDict)
-    res.encoding = 'utf-8'
-    if len(res.content) > 700 :
-        with open('tmp.jpg','wb') as f:
-            f.write(res.content)
+    try:
+        res = requests.get(url, headers = ua_headers, cookies=cookieDict)
+        res.encoding = 'utf-8'
 
-        with open("tmp.jpg", "rb") as f:
-            base64_data = base64.b64encode(f.read())
-        return base64_data.decode('utf-8')
-    else:
-        return get_Image_with_proxy(url,proxy)
+        if len(res.content) > 700 :
+            with open('tmp.jpg','wb') as f:
+                f.write(res.content)
 
+            with open("tmp.jpg", "rb") as f:
+                base64_data = base64.b64encode(f.read())
+            return base64_data.decode('utf-8')
+        else:
+            return get_Image_with_proxy(url,proxy)
+    except:
+        return None
 if __name__ == '__main__':
     url = "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1910813120.webp"
     print(getImage(url))
