@@ -31,7 +31,8 @@ ua_headers = {
 
 Proxy = ProxyMiddleware()
 proxy = Proxy.getProxy()
-def get_Image_with_proxy(url,proxy):
+i = 0
+def get_Image_with_proxy(url,proxy,i):
     print('---启用代理----')
     print(proxy)
     try:
@@ -46,7 +47,11 @@ def get_Image_with_proxy(url,proxy):
         else:
             Proxy.changeProxy()
             newproxy = Proxy.getProxy()
-            get_Image_with_proxy(url,newproxy)
+            i += 1
+            if i <= 6:
+                get_Image_with_proxy(url,newproxy,i)
+            else:
+                return None
     except:
         return None
 
@@ -63,7 +68,7 @@ def getImage(url):
                 base64_data = base64.b64encode(f.read())
             return base64_data.decode('utf-8')
         else:
-            return get_Image_with_proxy(url,proxy)
+            return get_Image_with_proxy(url,proxy,i)
     except:
         return None
 if __name__ == '__main__':

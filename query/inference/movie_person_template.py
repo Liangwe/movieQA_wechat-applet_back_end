@@ -257,12 +257,12 @@ class QuestionSet:
         :param word_objects:
         :return:
         """
-        select = u"?x (COUNT(?x) AS ?count) ?r"
+        select = u"?x (COUNT(?x) AS ?count) ?d"
         sparql = None
         for w in word_objects:
             if w.pos == pos_person:
                 e = u"?p :movie_person_name '{person}'.\n" \
-                    u"?p :movie_person_name ?r.\n" \
+                    u"?p :movie_person_name ?d.\n" \
                     u"?p :has_acted_in ?m.\n" \
                     u"?m :has_actor ?a.\n" \
                     u"?a :movie_person_name ?x.\n"\
@@ -271,7 +271,7 @@ class QuestionSet:
                 sparql = SPARQL_SELECT_TEM.format(prefix=SPARQL_PREFIX,
                                                   select=select,
                                                   expression=e) + \
-                        "groupby ?x ?r\n"\
+                        "groupby ?x ?d\n"\
                         "orderby desc(?count)"
                 break
 

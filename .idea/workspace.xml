@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f402096-4c11-4177-90b4-25a1bbffd7a9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/query/inference/movie_person_template.py" beforeDir="false" afterPath="$PROJECT_DIR$/query/inference/movie_person_template.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/query/ner/stop_words.txt" beforeDir="false" afterPath="$PROJECT_DIR$/query/ner/stop_words.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/query/optimize/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/query/optimize/result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/query/util/get_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/query/util/get_image.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test - 副本" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.app">
@@ -236,7 +239,20 @@
       <workItem from="1588067394393" duration="367000" />
       <workItem from="1588319226778" duration="24000" />
       <workItem from="1588319870808" duration="1438000" />
-      <workItem from="1588741728044" duration="7357000" />
+      <workItem from="1588741728044" duration="7650000" />
+      <workItem from="1588751584694" duration="46000" />
+      <workItem from="1588754633549" duration="980000" />
+      <workItem from="1589007673455" duration="1808000" />
+      <workItem from="1589079570400" duration="2404000" />
+      <workItem from="1589095814155" duration="402000" />
+      <workItem from="1589517636827" duration="27000" />
+      <workItem from="1591596573138" duration="326000" />
+      <workItem from="1591705342917" duration="2615000" />
+      <workItem from="1591769151070" duration="2094000" />
+      <workItem from="1591771460970" duration="2915000" />
+      <workItem from="1591775274266" duration="644000" />
+      <workItem from="1591778755550" duration="1461000" />
+      <workItem from="1592650234065" duration="598000" />
     </task>
     <task id="LOCAL-00001" summary="更换代理，以及小优化">
       <created>1587864401854</created>
@@ -252,7 +268,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588066712323</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="去除不必要的符号等">
+      <created>1588751205054</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1588751205054</updated>
+    </task>
+    <task id="LOCAL-00004" summary="去除不必要的符号等">
+      <created>1588751219391</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1588751219391</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,25 +304,26 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="更换代理，以及小优化" />
     <MESSAGE value="返回结果优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="返回结果优化" />
+    <MESSAGE value="去除不必要的符号等" />
+    <option name="LAST_COMMIT_MESSAGE" value="去除不必要的符号等" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="26" key="#Notifications" timestamp="1587783538961">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="26" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1587783538961" />
-    <state x="295" y="0" key="CommitChangelistDialog2" timestamp="1588751201547">
+    <state x="295" y="0" key="CommitChangelistDialog2" timestamp="1588751217945">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="295" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588751201547" />
+    <state x="295" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588751217945" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1587864643757">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1587864643757" />
-    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1587784717602">
+    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1591706389818">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587784717602" />
+    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1591706389818" />
     <state x="558" y="260" width="274" height="208" key="Github.ShareDialog" timestamp="1587783464584">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -321,14 +352,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1588320521532" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1588751178939">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1588751223315">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588751178939" />
-    <state x="375" y="192" key="com.intellij.ide.util.TipDialog" timestamp="1588060904228">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588751223315" />
+    <state x="375" y="192" key="com.intellij.ide.util.TipDialog" timestamp="1592650820085">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="375" y="192" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1588060904228" />
+    <state x="375" y="192" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592650820085" />
     <state x="578" y="100" key="ftp.server.browser" timestamp="1585539625443">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -85,20 +85,22 @@ class OptimizeResult:
         if cooperate_list:
             cooperate_tmp = []
             cooperate_data = {}
-            if len(cooperate_list[0])/2 > 30 :
+            if len(cooperate_list[0])/3 > 30 :
                 result = ('共查询到{}条信息，如下所示(按照合作次数排名，仅显示前三十条)：\n'.format(int(len(cooperate_list[0]) / 2)))
             else:
                 result = ('共查询到{}条信息，如下所示(按照合作次数排名)：\n'.format(int(len(cooperate_list[0]) / 2)))
-            for i in range(0, len(cooperate_list[0]), 2):
+            for i in range(0, len(cooperate_list[0]), 3):
                 tmp = {}
-                if len(cooperate_list[0])/2 < 30:
+                if len(cooperate_list[0])/3 < 30:
                     tmp["cooperate_name"] =  cooperate_list[0][i]
                     tmp["cooperate_times"] = cooperate_list[0][i + 1]
+                    tmp["ori_name"] = cooperate_list[0][i + 2]
                     cooperate_tmp.append(tmp)
                 else:
-                    if i < 60:
+                    if i < 90:
                         tmp["cooperate_name"] = cooperate_list[0][i]
                         tmp["cooperate_times"] = cooperate_list[0][i + 1]
+                        tmp["ori_name"] = cooperate_list[0][i + 2]
                         cooperate_tmp.append(tmp)
                     else:
                         break
